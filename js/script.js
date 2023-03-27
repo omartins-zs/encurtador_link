@@ -2,11 +2,11 @@ function encurtarUrl() {
     // Validar se o link existe
     var url = document.getElementById("input-url").value;
     if (!url) {
-        alert("É preciso inserir uma URL para encurtar");
+        alertify.set("notifier", "position", "top-center");
+        alertify.set("notifier", "delay", 3);
+        alertify.error("É preciso inserir uma URL para encurtar");
         return;
     }
-
-    // api kay: 0cf2c0584ca444eeb382ce938f875d40
 
     // Encurtar link
 
@@ -43,6 +43,8 @@ function copiar() {
 
     navigator.clipboard.writeText(inputUrl.value);
 
+    alertify.set("notifier", "position", "top-center");
+    alertify.set("notifier", "delay", 3);
     // Usando Template String para mostrar alert
-    alert(`Url copiada: ${inputUrl.value}`);
+    alertify.message(`Url copiada: ${inputUrl.value}`);
 }
